@@ -1,9 +1,9 @@
 <?php
 echo '<h4> Welcome!, This site is up and running. </h4>';
-$dbhost = 'sri-db-instance.cq174vfsoqja.us-east-1.rds.amazonaws.com';
+$dbhost = db_host;
 $dbname = 'srimysqldb';
-$username = 'sri';
-$password = 'sridbpass';
+$username = mysql_user;
+$password = mysql_password;
 
 $conn = new mysqli($dbhost, $username, $password, $dbname);
 if($conn->connect_error) {
