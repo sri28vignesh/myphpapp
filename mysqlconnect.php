@@ -16,9 +16,9 @@ if ($conn->query($sql1) === TRUE) {
           echo "\nTable Persons created successfully <br>";
               
               $sql = "insert into persons (name,city) values ('Adam','Coimbatore');";
-              $sql .= "insert into persons (name,city) values ('Brevis','Chennai');";
-              $sql .= "insert into persons (name,city) values ('Milne','Bangalore');";
-              if ($conn->multi_query($sql) === TRUE) {
+              //$sql .= "insert into persons (name,city) values ('Brevis','Chennai');";
+              //$sql .= "insert into persons (name,city) values ('Milne','Bangalore');";
+              if ($conn->query($sql) === TRUE) {
               echo "\n New record created successfully <br>";
               } 
                   else {
