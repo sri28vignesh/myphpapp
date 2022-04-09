@@ -13,13 +13,13 @@ echo '--------- MySQL Connected successfully -------<br>';
 
 $sql1 = "CREATE TABLE IF NOT EXISTS persons( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50), city VARCHAR(50));";
 if ($conn->query($sql1) === TRUE) {
-          echo "\nTable Persons created successfully";
+          echo "\nTable Persons created successfully <br>";
               
               $sql = "insert into persons (name,city) values ('Adam','Coimbatore');";
-              $sql .= "insert into persons (name,city) values ('Brevis','Chennai');";
-              $sql .= "insert into persons (name,city) values ('Milne','Bangalore');";
-              if ($conn->multi_query($sql) === TRUE) {
-              echo "\n New records created successfully";
+              //$sql .= "insert into persons (name,city) values ('Brevis','Chennai');";
+              //$sql .= "insert into persons (name,city) values ('Milne','Bangalore');";
+              if ($conn->query($sql) === TRUE) {
+              echo "\n New record created successfully <br>";
               } 
                   else {
                     echo "Error: " . $sql . "<br>" . $conn->error;
