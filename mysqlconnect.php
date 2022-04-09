@@ -15,9 +15,9 @@ $sql1 = "CREATE TABLE IF NOT EXISTS persons( id INT AUTO_INCREMENT PRIMARY KEY, 
 if ($conn->query($sql1) === TRUE) {
           echo "\nTable Persons created successfully";
               
-              $sql = "insert into persons(name,city) values('Adam','Coimbatore')";
-              $sql .= "insert into persons(name,city) values('Brevis','Chennai')";
-              $sql .= "insert into persons(name,city) values('Milne','Bangalore')";
+              $sql = "insert into persons (name,city) values ('Adam','Coimbatore');";
+              $sql .= "insert into persons (name,city) values ('Brevis','Chennai');";
+              $sql .= "insert into persons (name,city) values ('Milne','Bangalore');";
               if ($conn->multi_query($sql) === TRUE) {
               echo "New records created successfully";
               } 
