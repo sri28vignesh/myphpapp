@@ -19,7 +19,7 @@ if ($conn->query($sql1) === TRUE) {
               $sql .= "insert into persons (name,city) values ('Brevis','Chennai');";
               $sql .= "insert into persons (name,city) values ('Milne','Bangalore');";
               if ($conn->multi_query($sql) === TRUE) {
-              echo "New records created successfully";
+              echo "\n New records created successfully";
               } 
                   else {
                     echo "Error: " . $sql . "<br>" . $conn->error;
@@ -30,13 +30,13 @@ if ($conn->query($sql1) === TRUE) {
 }
 
 echo 'List of Persons <br>';
-$sql = "SELECT * FROM persons";
+$sql = "SELECT * FROM persons;";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
           // output data of each row
            while($row = $result->fetch_assoc()) {
-               echo "id: " . $row["personid"]. " - Name: " . $row["name"]. " " . $row["city"]. "<br>";
+               echo " Name: " . $row["name"]. " City: " . $row["city"]. "<br>";
                  }
             } else {
                    echo "0 results";
