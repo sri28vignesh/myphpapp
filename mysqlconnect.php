@@ -1,9 +1,9 @@
 <?php
 echo '<h4> Welcome!, This site is up and running. </h4>';
-$dbhost = db_host;
+$dbhost = 'mysql-service';
 $dbname = 'srimysqldb';
-$username = mysql_user;
-$password = mysql_password;
+$username = 'sri';
+$password = 'password';
 
 $conn = new mysqli($dbhost, $username, $password, $dbname);
 if($conn->connect_error) {

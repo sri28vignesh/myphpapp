@@ -1,0 +1,6 @@
+FROM mysql:latest
+
+ENV MYSQL_ROOT_PASSWORD root
+ENV MYSQL_DATABASE srimysqldb
+ENV MYSQL_USER sri
+ENV MYSQL_PASSWORD password
