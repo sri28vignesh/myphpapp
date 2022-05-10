@@ -10,6 +10,15 @@ pipeline {
             sh 'docker tag mysql-image mysql-image:latest'
         }
     }
+
+    stage ('Scan Mysql Image'){
+        steps{
+            sh '''result=trivy image mysql-image | grep -i total
+            echo $result
+            error("Build failed because of vulnerability in mysql image..")     
+            '''
+        }
+    }
     
     stage('Backup Mysql'){
             steps{
