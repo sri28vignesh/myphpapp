@@ -1,5 +1,5 @@
 <?php
-echo '<h4> Welcome!, This site is up and running. </h4>';
+echo '<h4> Welcome everyone!, This site is up and running. </h4>';
 $dbhost = 'mysql-service';
 $dbname = 'srimysqldb';
 $username = 'sri';
