@@ -51,6 +51,24 @@ pipeline {
                
           }
         }
+    stage ('Scan Php Image'){
+        steps{
+            sh '''result=$(trivy image php-demoapp | grep -i total)
+            echo $result
+            start=8;stop=9; 
+            num=$(echo $result | cut -c $start-$(($stop-1)))
+            echo $num
+
+            if [ $num = "0" ]
+            then
+            echo "No Issues"
+            else
+            echo "Build failed because of vulnerability in php image.."
+            false
+            fi     
+            '''
+        }
+    }
 
     stage('Backup Php'){
         steps{
