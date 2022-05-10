@@ -13,9 +13,18 @@ pipeline {
 
     stage ('Scan Mysql Image'){
         steps{
-            sh '''result=trivy image mysql-image | grep -i total
+            sh '''result=$(trivy image mysql-image | grep -i total)
             echo $result
-            error("Build failed because of vulnerability in mysql image..")     
+            start=8;stop=9; 
+            num=$(echo $result | cut -c $start-$(($stop-1)))
+            echo $num
+
+            if [ $num = "0" ]
+            then
+            echo "No Issues"
+            else
+            error("Build failed because of vulnerability in mysql image..")
+            fi     
             '''
         }
     }
