@@ -23,7 +23,8 @@ pipeline {
             then
             echo "No Issues"
             else
-            error("Build failed because of vulnerability in mysql image..")
+            echo "Build failed because of vulnerability in mysql image.."
+            false
             fi     
             '''
         }
