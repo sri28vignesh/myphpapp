@@ -72,14 +72,14 @@ pipeline {
 
     stage('Backup Php'){
         steps{
-            sh 'docker top sri-php-container || docker run -d --name sri-php-container -p 5001:80 --link mysql-service php-demoapp:latest'
             sh 'docker commit sri-php-container sri-php-container-$BUILD_NUMBER'
         }
     } 
     stage('Deploy 2Tier App'){
         steps{
-             sh 'docker stop sri-php-container && docker rm sri-php-container'
+             sh 'docker rm sri-php-container || true'
              sh 'docker run -d --name sri-php-container -p 5001:80 --link mysql-service php-demoapp:latest'
+             sh 'echo Running at port 5001'
         }
     }
      
