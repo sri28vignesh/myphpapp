@@ -19,7 +19,7 @@ phases:
       - docker tag $REPOSITORY_URI_1:latest $REPOSITORY_URI_1:$IMAGE_TAG
       - echo Building the Mysql Docker image...
       - docker build -t $REPOSITORY_URI_2:latest .
-      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI_2:$IMAGE_TAG
+      - docker tag $REPOSITORY_URI_2:latest $REPOSITORY_URI_2:$IMAGE_TAG
   post_build:
     commands:
       - echo Build completed on `date`
